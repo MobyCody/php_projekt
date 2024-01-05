@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html> 
+<!-- STAND 231212_EH -->
+    <head>
+        <link rel="stylesheet" href = "Style.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo showing coffe mug, pen and clipboard, pixel art">            
+        </div>
+        <div class="menu">
+            <input type="checkbox" id="burger-toggle">
+            <label for="burger-toggle" class="burger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            </label>
+            <ul>
+              <li><a href="anlegen.html">Artikel anlegen</a></li>
+              <li><a href="bearbeiten.html">Bearbeiten</a></li>
+              <li><a href="uebersicht.php">Übersicht</a></li>
+              <li><a href="ueber.html">Über uns</a></li>
+            </ul>
+          </div>
+        <div>
+        <h1>Bearbeiten</h1>
+        <!-- Formular für die Änderung von Datensätzen -->
+        <!-- action >> Verknüpfung des .html zu einer .php Datei - Verknüpfung von Client und Server-->
+        <div class="container">
+            <div class="divider">
+                <form
+                 method="post">
+                    <!-- ID Aussuchen -->
+                    <input id="USP" type="number" name="phpID" placeholder="ID">
+            </div>
+        </div>
+        <div class="container">
+            <div class="divider">
+                <input id="productname" type="text" name="phpProductName" placeholder="Name">
+                <!-- <input name="">  
+                    >> name ist der key/index für das assoziative Array des .php Dokuments
+                    >> so kann man seine Schlüssel selbst vergeben -
+                    >> Case Sensitive   -->
+                    <input id="brandname" type="text" name="phpBrandName" placeholder="Marke">
+                    <input id="whoPayed" type="text" name="phpWhoPayed" placeholder="Kostenstelle">                
+                    <input id="price" type="number" step="0.01" name="phpPrice" placeholder="Preis">
+                    <input id="buyDate" type="date" name="phpDate" placeholder="Anschaffungsdatum">
+                    <br>
+                    <input type="submit" formaction="PHPbearbeiten.php" value="Datensatz ändern">
+                    <input type="submit" formaction="PHPloeschen.php" value="Artikel löschen" id="button-delete" onclick="return confirm('Sind Sie sich sicher, dass Sie den Artikel löschen wollen? Gelöschte Artikel können nicht wiederhergestellt werden!')">
+                </form>
+            </div>
+        </div>
+        <div id="doge-container">
+            <img src="doge.png" alt="Doge leaning in from the side" id="doge-image"> 
+        </div>
+    </body>
+</html>
