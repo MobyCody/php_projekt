@@ -12,5 +12,3 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM tbl_firmentechnik";
 $result = $conn->query($sql);
-
-?>

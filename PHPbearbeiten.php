@@ -11,7 +11,7 @@ $DBdate = $_POST['phpDate'];
 $DBid = $_POST['phpID'];
 
 // / Hilfszeile um zu schauen, ob die Übergabe funktioniert.
- echo $_POST["phpProductName"] . " " . $_POST["phpBrandName"]  . " " . $_POST["phpWhoPayed"]  . " " . $_POST["phpPrice"] . " " . $_POST["phpDate"] . "\n";
+echo $_POST["phpProductName"] . " " . $_POST["phpBrandName"]  . " " . $_POST["phpWhoPayed"]  . " " . $_POST["phpPrice"] . " " . $_POST["phpDate"] . "\n";
 
 // Aufruf der Funktion mysqli mit den Übergabeparametern
 // Link zur DB, User, Passwort, Name der DB
@@ -32,4 +32,3 @@ if (isset($_SERVER['HTTP_REFERER'])) {
     header("Location: /bearbeiten.html");
 }
 exit();
-

@@ -9,7 +9,7 @@ $DBprice = $_POST['phpPrice'];
 $DBdate = $_POST['phpDate'];
 
 // / Hilfszeile um zu schauen, ob die Übergabe funktioniert.
- echo $_POST["phpProductName"] . " " . $_POST["phpBrandName"]  . " " . $_POST["phpWhoPayed"]  . " " . $_POST["phpPrice"] . " " . $_POST["phpDate"] . "\n";
+echo $_POST["phpProductName"] . " " . $_POST["phpBrandName"]  . " " . $_POST["phpWhoPayed"]  . " " . $_POST["phpPrice"] . " " . $_POST["phpDate"] . "\n";
 
 
 // Aufruf der Funktion mysqli mit den Übergabeparametern
