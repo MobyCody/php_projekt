@@ -37,30 +37,52 @@
         </form>
     </div>
     <div class=container>
+
         <?php
+        // Aquire data from database
         include('PHPuebersicht.php');
+
+        // Sorting functionality
+        $sortColumn = isset($_POST['sortColumn']) ? $_POST['sortColumn'] : 'KaufDatum';
+        $sortOrder = isset($_POST['sortOrder']) ? $_POST['sortOrder'] : 'ASC';
 
         // Handle the form submission and get the result
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
-            $result = getOverviewData($_POST["search"]);
+            $result = getOverviewData($_POST["search"], $_POST["sortColumn"], $_POST["sortOrder"]);
         } else {
             // Default query if no search term
-            $result = getOverviewData();
+            $result = getOverviewData($_POST["sortColumn"], $_POST["sortOrder"]);
         }
+
         ?>
+
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Marke</th>
-                    <th>Kostenstelle</th>
-                    <th>Preis</th>
-                    <th>Anschaffungsdatum</th>
+                    <th>
+                        <a href="?sortColumn=ID&sortOrder=<?php echo $sortColumn === 'ID' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">ID</a>
+                    </th>
+                    <th>
+                        <a href="?sortColumn=ProdName&sortOrder=<?php echo $sortColumn === 'ProdName' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Name</a>
+                    </th>
+                    <th>
+                        <a href="?sortColumn=Marke&sortOrder=<?php echo $sortColumn === 'Marke' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Marke</a>
+                    </th>
+                    <th>
+                        <a href="?sortColumn=Kostenstelle&sortOrder=<?php echo $sortColumn === 'Kostenstelle' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Kostenstelle</a>
+                    </th>
+                    <th>
+                        <a href="?sortColumn=Preis&sortOrder=<?php echo $sortColumn === 'Preis' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Preis</a>
+                    </th>
+                    <th>
+                        <a href="?sortColumn=KaufDatum&sortOrder=<?php echo $sortColumn === 'KaufDatum' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Anschaffungsdatum</a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
+
                 <?php
+                // Generate rows with data or display no data message
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
@@ -77,6 +99,7 @@
                     echo "<tr><td colspan='2'>No data found</td></tr>";
                 }
                 ?>
+
             </tbody>
         </table>
     </div>
