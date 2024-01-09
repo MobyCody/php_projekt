@@ -9,8 +9,6 @@ function getOverviewData($searchTerm = null, $sortColumn = "KaufDatum", $sortOrd
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // echo $DBproductName . " " . $DBbrandName . " " . $DBwhoPayed . " " . $DBprice . " " . $DBdate . "\n";
-
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }

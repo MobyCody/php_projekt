@@ -28,7 +28,7 @@
     <h1>Übersicht</h1>
     <div class="search-container">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <label for="search-input">Suche:</label>
+            <label for="search-input" id="search-label">Suche:</label>
             <input type="search" id="search-input" name="search" placeholder="Suchbegriff eingeben..." pattern=".*\S.*" required>
             <button type="submit" class="button">Suchen</button>
             <a href="uebersicht.php">
