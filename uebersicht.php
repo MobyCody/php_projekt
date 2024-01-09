@@ -26,6 +26,7 @@
     </div>
 
     <h1>Übersicht</h1>
+
     <div class="search-container">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <label for="search-input">Suche:</label>
@@ -36,6 +37,7 @@
             </a>
         </form>
     </div>
+
     <div class=container>
 
         <?php
@@ -53,7 +55,6 @@
             // Default query if no search term
             $result = getOverviewData("", $sortColumn, $sortOrder);
         }
-
         ?>
 
         <table>
