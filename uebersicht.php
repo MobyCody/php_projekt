@@ -43,15 +43,15 @@
         include('PHPuebersicht.php');
 
         // Sorting functionality
-        $sortColumn = isset($_POST['sortColumn']) ? $_POST['sortColumn'] : 'KaufDatum';
-        $sortOrder = isset($_POST['sortOrder']) ? $_POST['sortOrder'] : 'ASC';
+        $sortColumn = isset($_GET['sortColumn']) ? $_GET['sortColumn'] : 'KaufDatum';
+        $sortOrder = isset($_GET['sortOrder']) ? $_GET['sortOrder'] : 'ASC';
 
         // Handle the form submission and get the result
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["search"])) {
-            $result = getOverviewData($_POST["search"], $_POST["sortColumn"], $_POST["sortOrder"]);
+            $result = getOverviewData($_POST["search"], $sortColumn, $sortOrder);
         } else {
             // Default query if no search term
-            $result = getOverviewData($_POST["sortColumn"], $_POST["sortOrder"]);
+            $result = getOverviewData("", $sortColumn, $sortOrder);
         }
 
         ?>
@@ -60,19 +60,19 @@
             <thead>
                 <tr>
                     <th>
-                        <a href="?sortColumn=ID&sortOrder=<?php echo $sortColumn === 'ID' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">ID</a>
+                        <a href="?sortColumn=ID&sortOrder=<?php echo ($sortColumn === 'ID' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'; ?>">ID</a>
                     </th>
                     <th>
-                        <a href="?sortColumn=ProdName&sortOrder=<?php echo $sortColumn === 'ProdName' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Name</a>
+                        <a href="?sortColumn=ProdName&sortOrder=<?php echo ($sortColumn === 'ProdName' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'; ?>">Name</a>
                     </th>
                     <th>
-                        <a href="?sortColumn=Marke&sortOrder=<?php echo $sortColumn === 'Marke' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Marke</a>
+                        <a href="?sortColumn=Marke&sortOrder=<?php echo ($sortColumn === 'Marke' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'; ?>">Marke</a>
                     </th>
                     <th>
-                        <a href="?sortColumn=Kostenstelle&sortOrder=<?php echo $sortColumn === 'Kostenstelle' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Kostenstelle</a>
+                        <a href="?sortColumn=Kostenstelle&sortOrder=<?php echo ($sortColumn === 'Kostenstelle' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'; ?>">Kostenstelle</a>
                     </th>
                     <th>
-                        <a href="?sortColumn=Preis&sortOrder=<?php echo $sortColumn === 'Preis' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Preis</a>
+                        <a href="?sortColumn=Preis&sortOrder=<?php echo ($sortColumn === 'Preis' && $sortOrder === 'ASC') ? 'DESC' : 'ASC'; ?>">Preis</a>
                     </th>
                     <th>
                         <a href="?sortColumn=KaufDatum&sortOrder=<?php echo $sortColumn === 'KaufDatum' && $sortOrder === 'ASC' ? 'DESC' : 'ASC'; ?>">Anschaffungsdatum</a>

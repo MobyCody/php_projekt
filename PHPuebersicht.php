@@ -22,10 +22,10 @@ function getOverviewData($searchTerm = null, $sortColumn = "KaufDatum", $sortOrd
         WHERE ProdName LIKE '%$searchTerm%' OR 
         Marke LIKE '%$searchTerm%' OR 
         Kostenstelle LIKE '%$searchTerm%'
-        ORDER BY '$sortColumn' '$sortOrder'";
+        ORDER BY $sortColumn $sortOrder";
     } else {
         // Default query if no search term
-        $sql = "SELECT * FROM tbl_firmentechnik ORDER BY '$sortColumn' '$sortOrder'";
+        $sql = "SELECT * FROM tbl_firmentechnik ORDER BY $sortColumn $sortOrder";
     }
 
     $result = $conn->query($sql);
