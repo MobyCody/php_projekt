@@ -529,6 +529,44 @@ input[type="submit"]:hover {
   animation: glow 10s ease-in-out infinite;
 }
 
+#search-input {
+  padding: 10px;
+  font-size: 13px;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: #5995ED;
+  /* Blauer Hintergrund */
+  color: #fff;
+  /* Weiße Textfarbe */
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  /* Gerundete Ecken */
+  cursor: pointer;
+  transition: background-color .8s ease, color .8s ease, font-weight .8s ease;
+}
+
+.button:hover {
+  background-color: #FFAD05;
+  /* Anderer Farbton im Hover-Zustand */
+  color: #000000;
+}
+
+.search-container {
+  /* padding-left: 10vw; */
+  width: 50vw;
+  display: flex;
+  justify-self: center;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+
 @media only screen and (max-width: 1000px) {
   .burger-menu {
     display: flex;
