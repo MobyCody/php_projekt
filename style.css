@@ -474,8 +474,9 @@ textarea {
 .search-container {
   width: 50vw;
   display: flex;
-  flex-direction: row;
-  /* margin-bottom: 20px; */
+  justify-self: center;
+  justify-content: left;
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
