@@ -635,7 +635,7 @@ input[type="submit"]:hover {
 		transform: translateY(40%);
 	}
 	100% {
-		transform: translateY(-62.5%);
+		transform: translateY(-67.5%);
 	}
 }
 
