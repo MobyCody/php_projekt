@@ -79,6 +79,19 @@ table tr:nth-child(odd) {
   color: white;
 }
 
+.scrollable-body {
+  max-height: 60vh; /* Adjust the height as needed */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scrollable-body thead {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
 /* Logo */
 .logo-container {
   position: absolute;
@@ -209,6 +222,9 @@ input[type="checkbox"]:checked+label.burger-menu+ul {
   .burger-menu {
     display: flex;
   }
+  .image-gallery {
+    flex-direction: row;
+}
 }
 
 
@@ -369,67 +385,12 @@ input[type="submit"]:hover {
   }
 }
 
-/* About us page */
-.animal-container {
-  justify-content: space-between;
-  margin-left: 33.333vw;
-  width: 66.666%;
-  margin-top: 45vh;
-}
-
-.animal {
-  /* position: absolute 0px 0px; */
-  width: 150px;
-  height: 100%;
-  transform-origin: center bottom;
-  padding: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.animal:nth-child(1) {
-  transform: scale(.6);
-}
-.animal:nth-child(2) {
-  transform: scale(.8);
-}
-.animal:nth-child(3) {
-  transform: scale(.5);
-}
-.animal:nth-child(4) {
-  transform: scale(.8);
-}
-.animal:nth-child(1):hover {
-  transform: scale(.6) translateY(-20px) rotateZ(10deg);
-}
-.animal:nth-child(2):hover {
-  transform: scale(.8) translateY(-20px) rotateZ(10deg);
-}
-.animal:nth-child(3):hover {
-  transform: scale(.5) translateY(-20px) rotateZ(10deg);
-}
-.animal:nth-child(4):hover {
-  transform: scale(.8) translateY(-20px) rotateZ(10deg);
-}
-
-.name-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 33.333%;
-  margin: auto;
-  color: #ffffff;
-}
-
-.name {
-  font-weight: bold;
-  text-shadow: 0 0 15px #ffffff, 0 0 15px #ffffff, 0 0 15px #ffffff;
-  white-space: nowrap;
-  padding: 25px;
-}
 
 #ueber-body {
   background: url(background.jpg) center/cover fixed no-repeat;
-  background-position: center;
+  background-position: center center; /* Horizontally and vertically center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  /* background-size: cover; */
   z-index: 1;
   overflow: hidden;
 }
@@ -440,6 +401,7 @@ input[type="submit"]:hover {
   background-color: #ffffff;
   box-shadow: 0 0 15px #ffffff;
   margin: 3px 0;
+  z-index: 3;
 }
 
 .menu2 {
@@ -449,6 +411,7 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center;
   padding: 10px;
+  z-index: 3;
 }
 
 .menu2 ul {
@@ -456,6 +419,7 @@ input[type="submit"]:hover {
   margin: 0;
   padding: 0;
   display: flex;
+  z-index: 3;
 }
 
 .menu2 li {
@@ -479,6 +443,13 @@ input[type="submit"]:hover {
   color: #ffffff;
   padding-top: 80px;
   animation: glow 10s ease-in-out infinite;
+}
+
+#ueber-h2 {
+  color: #ffffff;
+  padding-top: 80px;
+  animation: glow 10s ease-in-out infinite;
+  font-size: 25px;
 }
 
 #search-input {
@@ -562,7 +533,8 @@ input[type="submit"]:hover {
     justify-content: space-around;
     width: 100%;
     margin: auto;
-    margin-top: 60vh;
+    margin-left: 6vw;
+    margin-top: 80vh;
   }
 
   /* Adjust the width of the name container */
@@ -582,7 +554,7 @@ input[type="submit"]:hover {
   top: 55%;
   left: -0%;
   transform-origin: top left;
-  animation: tiltIn 2s forwards;
+  animation: tiltIn 2s forwards, jiggle 8s ease-in-out 20s infinite;
 }
 
 .sign img {
@@ -595,11 +567,9 @@ input[type="submit"]:hover {
   0% {
     text-shadow: 0 0 10px #ffffff;
   }
-
   50% {
     text-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff;
   }
-
   100% {
     text-shadow: 0 0 10px #ffffff;
   }
@@ -609,54 +579,132 @@ input[type="submit"]:hover {
   0% {
     transform: translateX(-100%) rotate(0deg);
   }
-
   10% {
     transform: translateX(0) rotate(10deg);
   }
-
   75% {
     transform: translateX(0) rotate(10deg);
   }
-
   80% {
     transform: translateY(-5px) rotate(10deg);
   }
-
   85% {
     transform: translateY(5px) rotate(10deg);
   }
-
   90% {
     transform: translateY(-5px) rotate(10deg);
   }
-
   95% {
     transform: translateY(5px) rotate(10deg);
   }
-
   100% {
     transform: translateY(0) rotate(10deg);
   }
 }
 
 @keyframes jiggle {
-  0% {
-    transform: translateY(0);
-  }
-
-  25% {
-    transform: translateY(5px);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
-
-  75% {
-    transform: translateY(5px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
+    0%, 5%, 100% {
+        transform: translateY(0) rotate(10deg);
+    }
+    1.25% {
+        transform: translateY(5px) rotate(10deg);
+    }
+    2.5% {
+        transform: translateY(-5px) rotate(10deg);
+    }
+    3.75% {
+        transform: translateY(5px) rotate(10deg);
+    }
 }
+
+
+.credits-container {
+  text-align: center;
+  width: 100%;
+  animation: scrollUp 10s linear forwards;
+}
+
+.credits-container .credits-item {
+  margin-bottom: 1vh;
+  text-shadow: 0 0 15px #ffffff, 0 0 15px #ffffff, 0 0 15px #ffffff;
+  color: #ffffff;
+}
+
+@keyframes scrollUp {
+	0% {
+		transform: translateY(40%);
+	}
+	100% {
+		transform: translateY(-62.5%);
+	}
+}
+
+.image-gallery {
+  margin-top: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.image-container {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.image-container img {
+  width: 10vw;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container p {
+  width: 10vw;
+  height: auto;
+  display: block;
+  font-weight: bold;
+  text-shadow: 0 0 15px #ffffff, 0 0 15px #ffffff, 0 0 15px #ffffff;
+}
+
+
+  .image-container:nth-child(1) img {
+    transform: scale(.6);
+  }
+  .image-container:nth-child(2) img {
+    transform: scale(.8);
+  }
+  .image-container:nth-child(3) img {
+    transform: scale(.5);
+  }
+  .image-container:nth-child(4) img {
+    transform: scale(.8);
+  }
+  .image-container:nth-child(1):hover img {
+    transform: scale(.6) translateY(-20px) rotateZ(10deg);
+  }
+  .image-container:nth-child(2):hover img {
+    transform: scale(.8) translateY(-20px) rotateZ(10deg);
+  }
+  .image-container:nth-child(3):hover img {
+    transform: scale(.5) translateY(-20px) rotateZ(10deg);
+  }
+  .image-container:nth-child(4):hover img {
+    transform: scale(.8) translateY(-20px) rotateZ(10deg);
+  }
+  
+  .name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 33.333%;
+    margin: auto;
+    color: #ffffff;
+  }
+  
+  .name {
+    font-weight: bold;
+    text-shadow: 0 0 15px #ffffff, 0 0 15px #ffffff, 0 0 15px #ffffff;
+    white-space: nowrap;
+    padding: 25px;
+  }

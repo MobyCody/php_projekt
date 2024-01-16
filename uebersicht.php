@@ -56,6 +56,7 @@
 
         ?>
 
+    <div class="scrollable-body">
         <table>
             <thead>
                 <tr>
@@ -79,28 +80,29 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+                <tbody>
 
-                <?php
-                // Generate rows with data or display no data message
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["ID"] . "</td>";
-                        echo "<td>" . $row["ProdName"] . "</td>";
-                        echo "<td>" . $row["Marke"] . "</td>";
-                        echo "<td>" . $row["Kostenstelle"] . "</td>";
-                        echo "<td>" . str_replace('.', ',', $row["Preis"]) . " €" . "</td>";
-                        $formattedDate = date("d.m.Y", strtotime($row["KaufDatum"]));
-                        echo "<td>" . $formattedDate . "</td>";
-                        echo "</tr>";
+                    <?php
+                    // Generate rows with data or display no data message
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row["ID"] . "</td>";
+                            echo "<td>" . $row["ProdName"] . "</td>";
+                            echo "<td>" . $row["Marke"] . "</td>";
+                            echo "<td>" . $row["Kostenstelle"] . "</td>";
+                            echo "<td>" . str_replace('.', ',', $row["Preis"]) . " €" . "</td>";
+                            $formattedDate = date("d.m.Y", strtotime($row["KaufDatum"]));
+                            echo "<td>" . $formattedDate . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='2'>No data found</td></tr>";
                     }
-                } else {
-                    echo "<tr><td colspan='2'>No data found</td></tr>";
-                }
-                ?>
+                    ?>
 
-            </tbody>
+                </tbody>
+            </div>
         </table>
     </div>
 </body>
