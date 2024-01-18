@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="Style.css">
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 </head>
 
 <body>
@@ -97,7 +97,7 @@
                             echo "</tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='2'>No data found</td></tr>";
+                        echo "<tr><td colspan='2'>Keine Daten gefunden</td></tr>";
                     }
                     ?>
 
